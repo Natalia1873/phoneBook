@@ -14,11 +14,7 @@ public class PhoneBook {
         return name != null && !name.isEmpty() && name.matches("[a-zA-Zа-яА-Я\\s-]+");
     }
 
-    public void addContact(String phone, String name) {
-        if (!isValidPhone(phone) || !isValidName(name)) {
-            return;
-        }
-
+    private void removeOldPhoneBinding(String phone) {
         String oldName = phoneToName.get(phone);
         if (oldName != null) {
             nameToPhones.get(oldName).remove(phone);
@@ -26,9 +22,19 @@ public class PhoneBook {
                 nameToPhones.remove(oldName);
             }
         }
+    }
 
+    private void addNewPhoneBinding(String phone, String name) {
         nameToPhones.computeIfAbsent(name, k -> new TreeSet<>()).add(phone);
         phoneToName.put(phone, name);
+    }
+
+    public void addContact(String phone, String name) {
+        if (!isValidPhone(phone) || !isValidName(name)) {
+            return;
+        }
+        removeOldPhoneBinding(phone);
+        addNewPhoneBinding(phone, name);
     }
 
     public String getContactByPhone(String phone) {
