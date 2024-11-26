@@ -1,32 +1,19 @@
-# Работа с проектом в IntelliJ IDEA
+# Phone Book Application
 
-## Запуск тестов локально
+## Project Description
+This project implements a basic phone book application with functionality for storing and managing contacts. The program allows users to add contacts, search them by name or phone number, and view the complete list of contacts.
 
-Запуск на вашем компьютере перед отправкой в репозиторий
+## Features
+- Adding new contacts (name + phone number)
+- Searching contacts by name
+- Searching contacts by phone number
+- Viewing all contacts
+- Automatic update of number ownership when adding existing numbers
+- Support for multiple numbers per contact
 
-### Используя интерфейс
-
-- Вызовите контекстное меню папки `test/java`
-правой клавишей мыши.
-- Выберите пункт `Run 'All Tests'`
-
-![Запуск тестов](https://i.imgur.com/30te74l.png)
-
-### Используя горячие клавиши
-
-Запуск всех тестов `Ctrl+Shift+F10` / `⌃⇧R`
-
-*Также вы можете запустить дебаг для анализа и поиска причины*
-
-## Запуск проверки codestyle
-
-- Запустите плагин checkstyle:
-
-### Используя интерфейс
-
-![Запуск проверки стиля кода](https://i.imgur.com/jxgn4In.png)
-
-В результате получите отчет. Если ошибки будут найдены, посмотреть их список и описание
-сможете в разделе
-
-![](https://i.imgur.com/vyl2YnF.png)
+## Technical Details
+- Programming Language: Java
+- Data Structures Used: 
+  - HashMap for storing phone-name and name-phones relationships
+  - TreeSet for storing sorted lists of phone numbers
+  - Input validation using regular expressions
